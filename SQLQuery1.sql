@@ -1,0 +1,59 @@
+--1 แสดงชื่อประเภทสินค้า ชื่อสินค้า และ ราคาสินค้า
+--CARTESIAN PRODUCT เชื่อมโยงที่ค าสั่ง WHERE
+Select CategoryName, ProductName, UnitPrice
+From Products as P, Categories as C
+where P.CategoryID=C.CategoryID
+and categoryName = 'seafood'
+
+--JOIN OPERATOR เชื่อมโยงที่คำสั่ง FROM...ON...
+Select CategoryName, ProductName,UnitPrice
+From Products as P Join Categories as C
+On P.CategoryID=C.CategoryID
+where categoryName = 'seafood'
+
+--จงแสดงข้อมูลหมายเลขใบสั่งซื้อ และชื่อบริษัท ขนส่งสินค้า
+Select CompanyName, OrderID
+FROM Orders, Shippers
+WHERE Shippers.ShipperID = Orders.Shipvia
+
+Select CompanyName, OrderID
+FROM Orders join Shippers
+ON Shippers.ShipperID = Orders.Shipvia
+
+--จงแสดงข้อมูลหมายเลขใบสั่งซื้อและชื่อบริษัทขนส่งสินค้าของใบสั่งซื้อหมายเลข 10275
+--Cartesian Product
+SELECT CompanyName, OrderID
+FROM Orders, Shippers
+WHERE Shippers.ShipperID = Orders.Shipvia
+AND OrderID = 10275
+
+--Join Operator
+SELECT CompanyName, OrderID
+FROM Orders JOIN Shippers
+ON Shippers.ShipperID=Orders.Shipvia
+WHERE OrderID=10275
+
+select p.ProductID,p.ProductName,s.CompanyName,s.Country
+from Products p join Suppliers s on p.SupplierID = p.SupplierID
+where Country in ('usa','uk')   
+--ต้องการรหัสพนักงาน ชื่อพนักงาน รหัสใบสั่งซื้อที่เกี่ยวข้อง เรียงตามลำดับรหัสพนักงาน
+select e.Employees e join orders o on s.shipperID =o.shipVia
+
+
+--ต้องการรหัสสินค้า ชื่อสินค้า และสินค้าจำนวนทั้งหมดที่ขายได้
+select p.productID, p.productName, sum(Quantity) จำนวนที่ขายได้
+from products p jojn [order Details] od on p.productID = od.productID
+group by p.productID, p.productName
+
+--ต้องการรหัสสินค้า ชื่อสินค้า ที่ nancy ขายได้ ทั้งหมด เรียงตาม
+
+
+
+
+
+
+
+on p.categoryID = c.catgoryID
+where categoryName = 'seafood'
+
+
