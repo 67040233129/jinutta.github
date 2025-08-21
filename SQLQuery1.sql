@@ -1,5 +1,5 @@
 --1 แสดงชื่อประเภทสินค้า ชื่อสินค้า และ ราคาสินค้า
---CARTESIAN PRODUCT เชื่อมโยงที่ค าสั่ง WHERE
+--CARTESIAN PRODUCT เชื่อมโยงที่คำสั่ง WHERE
 Select CategoryName, ProductName, UnitPrice
 From Products as P, Categories as C
 where P.CategoryID=C.CategoryID
@@ -35,25 +35,42 @@ WHERE OrderID=10275
 
 select p.ProductID,p.ProductName,s.CompanyName,s.Country
 from Products p join Suppliers s on p.SupplierID = p.SupplierID
-where Country in ('usa','uk')   
---ต้องการรหัสพนักงาน ชื่อพนักงาน รหัสใบสั่งซื้อที่เกี่ยวข้อง เรียงตามลำดับรหัสพนักงาน
-select e.Employees e join orders o on s.shipperID =o.shipVia
+where Country in ('usa','uk')
 
-
---ต้องการรหัสสินค้า ชื่อสินค้า และสินค้าจำนวนทั้งหมดที่ขายได้
-select p.productID, p.productName, sum(Quantity) จำนวนที่ขายได้
-from products p jojn [order Details] od on p.productID = od.productID
-group by p.productID, p.productName
-
---ต้องการรหัสสินค้า ชื่อสินค้า ที่ nancy ขายได้ ทั้งหมด เรียงตาม
-
-
-
-
-
-
-
-on p.categoryID = c.catgoryID
-where categoryName = 'seafood'
-
-
+select e.EmployeeID,FirstName
+from Employees e join Orders o on e.EmployeeID=e.EmployeeID
+order by EmployeeID
+--JOIN Operator
+SELECT O.OrderID เลขใบสั่งซื้อ, C.CompanyName ลูกค้า,
+E.FirstName พนักงาน, O.ShipAddress ส่งไปที่
+FROM Orders O
+join Customers C on O.CustomerID=C.CustomerID
+join Employees E on O.EmployeeID=E.EmployeeID
+--ต้องการ รหัสพนักงาน ชื่อพนักงาน จำนวนใบสั่งซื้อที่เกี่ยวข้อง ผลรวมของค่าขนส่งในปี 1998
+select e.EmployeeID, FirstName , count(*) as [จำนวน order], sum(freight) as [Sum of Freight]
+from Employees e join Orders o on e.EmployeeID = o.EmployeeID
+where year(orderdate) = 1998
+group by e.EmployeeID, FirstName
+--ต้องการชื่อบริษัทขนส่ง และจำนวนใบสั่งซื้อที่เกี่ยวข้อง
+select s.CompanyName,COUNT(*)จำนวนorder
+from Shippers s join Orders o on s. ShipperID=o.ShipVia
+group by s.CompanyName
+order by 2 desc
+--ต้องการรหัสสินค้า ชื่อสินค้า และจำนวนทั้งหมดที่ขายได้ 
+select p.ProductID,p.ProductName,sum(Quantity)จำนวนที่ขายได้
+from Products p join [Order Details]od on p.ProductID=od.ProductID
+group by p.ProductID, p.ProductName
+--ต้องการรหัสสินค้า ชื่อสินค้า ที่ Nancy ขายได้ ทั้งหมด เรียงตามลำดับรหัสสินค้า
+select distinct p.ProductID,p.ProductName
+from Employees e join Orders o on e.EmployeeID=o.EmployeeID
+				 join [Order Details]od on o.OrderID=od.OrderID
+				 join Products p on p.ProductID=od.ProductID
+where e.FirstName ='Nancy'
+order by ProductID
+--ต้องการชื่อบริษัทลูกค้าชื่อ Around the Horn ซื้อสินค้าที่มาจากประเทศอะไรบ้าง
+select distinct s.Country
+from Customers c join Orders o on c.CustomerID=o.CustomerID
+				 join [Order Details] od on o.OrderID=od.OrderID
+				 join Products p on p.ProductID=od.ProductID
+				 join Suppliers s on s.SupplierID=p.SupplierID
+where c.CompanyName ='Around the Horn'
