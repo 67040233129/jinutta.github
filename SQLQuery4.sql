@@ -48,6 +48,15 @@ Select* from customers
 insert into customers(CustomerID,CompanyName)
 VALUES ('A0001','บริษัทซื้อเยอะจำกัด')
 
+
+select *from Employees
+---ต้องการข้อมุล รหัสและชื่อพนักงาน และรหัสและชื่อหัวหน้าพนักงาน
+Select emp.EmployeeID, emp.FirstName ชื่อพนักงาน,
+       boss.EmployeeID, boss.FirstName ชือหัวหน้า
+from Employees emp join Employees boss
+on emp.Reportsto = boss.EmployeeID
+
+
 --จงเพิ่มข้อมูลพนักงาน 1 คน (ใส่ข้อมูลเท่าที่มี)
 Insert into Employees(firstName,LastName)
 values ('วุ้นเส้น','เขมรสกุล')
