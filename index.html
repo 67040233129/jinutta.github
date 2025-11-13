@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรไฟล์นักศึกษา – นางสาวจิณัฐตา สารมานิตย์</title>
+  <style>
+    /* Reset / Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f4f7fa;
+      color: #333;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    /* Header / Intro */
+    .intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .intro h1 {
+      font-size: 2.4rem;
+      color: #ca87bc;
+      margin-bottom: 10px;
+    }
+    .intro p {
+      font-size: 1rem;
+      color: #555;
+      margin: 8px 0;
+    }
+
+    /* 🔹 รูปโปรไฟล์ */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ca87bc;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 50px;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      color: #2a3d4e;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .section ul {
+      list-style: disc inside;
+      margin: 16px 0;
+    }
+
+    /* Skills special styling */
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skills ul li {
+      display: inline-block;
+      background: #e8f0ff;
+      color: #003366;
+      margin: 6px 8px 6px 0;
+      padding: 8px 14px;
+      border: 1px solid #cce0ff;
+      border-radius: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .intro h1 {
+        font-size: 1.8rem;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 🔹 1. แนะนำตัว  -->
+    <section class="section intro">
+      <!-- เพิ่มรูปตรงนี้ -->
+      <img src="pic/nutty.jpg" alt="รูปโปรไฟล์ จิณัฐตา สารมานิตย์" class="profile-pic">
+      
+      <h1>นางสาวจิณัฐตา สารมานิตย์ (Jinutta Sanmanit)</h1>
+      <p><strong>คณะวิทยาศาสตร์ / มหาวิทยาลัยราชภัฏอุดรธานี / สาขาเทคโนโลยี:</strong> …</p>
+      <p><strong>ปีการศึกษา 2567 / สถานะ:</strong> นักศึกษาปีที่ 2 …</p>
+      <p><strong>ความสนใจเฉพาะทาง:</strong> AI, Web Dev, Cybersecurity, Data Science ฯลฯ</p>
+    </section>
+
+    <!-- 2. ทักษะ -->
+    <section class="section skills">
+      <h2>ทักษะ (Skills)</h2>
+      <p>ด้านที่ทำได้:</p>
+      <ul>
+        <li>Programming: Python, Java, HTML/CSS, JavaScript</li>
+        <li>AI &amp; Data: TensorFlow, scikit-learn, Power BI, SQL</li>
+        <li>Tools: Git, VS Code, Figma, Google Colab</li>
+      </ul>
+    </section>
+
+    <!-- 3. ผลงานที่ผ่านมา -->
+    <section class="section projects">
+      <h2>ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+      <ul>
+        <li>เว็บไซต์ที่เคยพัฒนา (Web Project)</li>
+        <li>ระบบจองห้องประชุมออนไลน์ (Web Project)</li>
+        <li>AI ทำนายโรคเบาหวานด้วย Machine Learning (Data Project)</li>
+        <li>Dashboard วิเคราะห์ข้อมูลร้านกาแฟ (Data Visualization)</li>
+      </ul>
+    </section>
+
+    <!-- 4. การศึกษา -->
+    <section class="section education">
+      <h2>การศึกษา (Education)</h2>
+      <p>โรงเรียนเตรียมอุดมศึกษาภาคตะวันออกเฉียง</p>
+      <p>ระดับมัธยมศึกษาตอนปลาย (ม.4–ม.6)</p>
+      <p>จบการศึกษาปี 2566</p>
+    </section>
+
+    <!-- 5. กิจกรรม -->
+    <section class="section activities">
+      <h2>กิจกรรมและผลงานอื่น ๆ </h2>
+      <ul>
+        <li>เข้าร่วมกิจกกรมวังแดงเกมส์</li>
+        <li>เข้าร่วมแข่งขัน UDRU Hackathon 2025</li>
+        <li>ได้รับรางวัลชนะเลิศโครงการด้าน IoT</li>
+      </ul>
+    </section>
+
+    <!-- 6. ติดต่อ -->
+    <section class="section contact">
+      <h2>ติดต่อ (C0826638334)</h2>
+      <ul>
+        <li>Email: 67040233129@udru.ac.th</li>
+        <li>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
+      </ul>
+    </section>
+
+    <!-- 7. ความสนใจในอนาคต -->
+    <section class="section extras">
+      <h2>องค์ประกอบเสริม / ความสนใจในอนาคต (Career Interest)</h2>
+      <p>เป้าหมายในอนาคต: อยากเป็นนักพัฒนาระบบ, Data Scientist, หรือ Cybersecurity Analyst</p>
+    </section>
+  </div>
+</body>
+</html>
